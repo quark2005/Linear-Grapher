@@ -1,6 +1,6 @@
-from tkinter import *
+import tkinter as tk
 
-root = Tk()
+root = tk.Tk()
 root.geometry("900x500")
 root.resizable(False, False)
 
@@ -16,7 +16,7 @@ def GetLine():
         grad = int(gradientInp.get())
         yInt = int(yICInp.get())
     except ValueError:
-        Label(text="Must Be Integers!").grid(column=1, row=2)
+        tk.Label(text="Must Be Integers!").grid(column=1, row=2)
 
     DrawLine(grad, yInt)
 
@@ -68,21 +68,21 @@ def DrawLine(grad, yInt):
     canvas.grid(column=4)
 
 
-Label(text="Enter Gradient").grid(row=0, column=0)
-gradientInp = Entry(root)
+tk.Label(text="Enter Gradient").grid(row=0, column=0)
+gradientInp = tk.Entry(root)
 gradientInp.grid(row=0, column=1)
 
-Label(text="Enter Y Intercept").grid(row=1, column=0)
-yICInp = Entry(root)
+tk.Label(text="Enter Y Intercept").grid(row=1, column=0)
+yICInp = tk.Entry(root)
 yICInp.grid(row=1, column=1)
 
-printButton = Button(root, text = "ENTER", command = GetLine)
+printButton = tk.Button(root, text = "ENTER", command = GetLine)
 printButton.grid(row=3)
 
-clearButton = Button(root, text = "CLEAR", command = ClearGraph)
+clearButton = tk.Button(root, text = "CLEAR", command = ClearGraph)
 clearButton.grid(row=3, column=1)
 
-Label(text="Axis from 10 to -10").grid(row=3, column = 2)
+tk.Label(text="Axis from 10 to -10").grid(row=3, column = 2)
 
 
 """
@@ -93,7 +93,7 @@ Label(text="Axis from 10 to -10").grid(row=3, column = 2)
         BOTTOM RIGHT -> 200, 200
 """
 
-canvas = Canvas(root)
+canvas = tk.Canvas(root)
 canvas.create_line(100, 0, 100, 200)
 canvas.create_line(0, 100, 200, 100)
 
